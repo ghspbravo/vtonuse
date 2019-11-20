@@ -1,0 +1,23 @@
+<section class="pt-0" id={{id}}>
+
+  <div class="container">
+    <div class="text-center">
+      {{> ../components/sectionTitle title="Мероприятия проекта" }}
+    </div>
+
+    <div class="events-container swiper-container">
+      <div class="swiper-wrapper">
+        {{#each events}}
+        <div class="event-item swiper-slide">
+          <div class="mb-2">
+            <img src="{{photo}}" alt="{{name}}">
+          </div>
+          <h4 class="text-center">{{name}}</h4>
+        </div>
+        {{/each}}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>

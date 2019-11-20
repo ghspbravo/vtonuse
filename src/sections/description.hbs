@@ -1,0 +1,50 @@
+<section id={{id}}>
+  <div class="container">
+    {{> ../components/sectionTitle title="ONLINE МАРАФОНЫ. ПОЛНОЕ ПРЕОБРАЖЕНИЕ" subtitle="мы уверены, ты можешь"}}
+
+    <div id="description-parent">
+      <div class="row d-none d-md-flex">
+        <div class="col-md-4">
+          {{#each descriptions}}
+          {{> ../components/descriptionControl name=name id=id active=isActive}}
+          {{/each}}
+        </div>
+        <div class="d-none d-md-block col-md-8">
+          {{#each descriptions}}
+          <div id="description-{{id}}" data-parent="#description-parent" class="{{#if isActive}}show{{/if}} collapse">
+            <div class="row">
+              <div class="col-md-6">
+                <img src={{image}} alt={{name}}>
+              </div>
+              <div class="col-md-6">
+                <h2 class="mt-0 mb-5">{{name}}</h2>
+                {{#each description as |text|}}
+                <p>{{text}}</p>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="d-md-none">
+        {{#each descriptions}}
+        {{> ../components/descriptionMobileControl name=name id=id active=isActive}}
+        <div id="description-mobile-{{id}}" data-parent="#description-parent"
+          class="{{#if isActive}}show{{/if}} collapse">
+
+          <div class="mb-2">
+            <img src={{image}} alt={{name}}>
+          </div>
+          {{#each description as |text|}}
+          <p>{{text}}</p>
+          {{/each}}
+        </div>
+
+        {{/each}}
+      </div>
+
+    </div>
+  </div>
+</section>

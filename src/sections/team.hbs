@@ -1,0 +1,31 @@
+<section id={{id}}>
+  <div class="container">
+
+    <div class="text-center">
+      {{> ../components/sectionTitle 
+      title="Команда профессионалов, на которую можно положиться"
+      subtitle="мы умеем больше, чем ты думаешь"}}
+    </div>
+
+    <div class="row team-member-list">
+      {{#each members}}
+      <div class="col-lg-4 mb-4 team-member">
+        <div class="team-member__photo mb-4">
+          <img src={{photo}} alt={{name}}>
+        </div>
+
+        <div class="text-center">
+          <h2>{{name}}</h2>
+          <p>{{role}}</p>
+          <div class="team-member__socials">
+            {{#each socials }}
+            <a target="_blank" href={{link}} class="mr-1">{{name}}</a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+  </div>
+</section>

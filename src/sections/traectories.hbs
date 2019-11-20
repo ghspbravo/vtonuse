@@ -1,0 +1,42 @@
+<section id={{id}}>
+  <div class="container">
+    {{> ../components/sectionTitle title="Наши направления" subtitle="мы умеем больше, чем ты думаешь"}}
+  </div>
+
+  <div class="pl-lg-0 col-lg-11">
+    <div class="col-lg-5 offset-lg-7">
+      <div class="row no-gutters">
+        {{#each traectories}}
+        {{> ../components/traectoryControl name=name id=id active=isActive}}
+        {{/each}}
+      </div>
+    </div>
+
+    <section class="secondary">
+      <div id="traectories-items" class="row">
+        <div class="d-lg-block d-none col-lg-5 offset-lg-2">
+          <div class="traectory-image">
+            <img src="https://dummyimage.com/600x800/e66161/ffffff" alt="traectories"
+              class="not-responsive traectory-image__image">
+          </div>
+        </div>
+        {{#each traectories}}
+        <div data-parent="#traectories-items" id="traectory-{{id}}"
+          class="{{#if isActive}}show{{/if}} collapse col-lg-5 px-5">
+          <h2>{{name}}</h2>
+          {{#each description as |text|}}
+          <p class="text-big">{{text}}</p>
+          {{/each}}
+        </div>
+        {{/each}}
+
+        <div class="col-12">
+          <div class="col-md-10 mx-auto">
+            <img src="https://dummyimage.com/600x800/e66161/ffffff" alt="traectories"
+              class="d-lg-none not-responsive traectory-image__image">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

@@ -1,0 +1,58 @@
+.section-title {
+  position: relative;
+  margin-bottom: 50px;
+
+  & > &__subtitle {
+    color: $c-main;
+  }
+
+  & > &__title {
+    margin-top: 15px;
+  }
+
+  &_side {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    transform: rotate(90deg);
+
+    @media screen and (max-width: 992px) {
+      position: relative;
+      transform: none;
+    }
+  }
+}
+
+.traectory-control {
+  a:not(button) {
+    text-transform: uppercase;
+    color: $c-main;
+  }
+  a.collapsed:not(button) {
+    color: black;
+  }
+}
+
+.description-control {
+  a:hover {
+    text-decoration: none !important;
+  }
+  a:not(button) {
+    text-transform: uppercase;
+    color: $c-main;
+  }
+  a.collapsed:not(button) {
+    color: black;
+  }
+
+  &__sign {
+    margin-right: 30px;
+  }
+
+  a.collapsed .sign-minus,
+  a:not(.collapsed) .sign-plus {
+    display: none;
+  }
+}

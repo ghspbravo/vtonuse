@@ -1,0 +1,165 @@
+$c-main: #d64e4e;
+$c-secondary: #e6e6e6;
+$c-disabled: #c7c5c5;
+
+@import "_components.scss";
+@import "_sections.scss";
+
+@import "./bootstrap/bootstrap-grid.scss";
+@import "./bootstrap/utilities/spacing.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Roboto|Alegreya+SC:500&display=swap");
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Alegreya SC", serif;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+body,
+button {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  @media screen and (max-width: 568px) {
+    font-size: 2em;
+  }
+}
+
+.text-big {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.pass {
+  visibility: hidden;
+}
+
+section {
+  position: relative;
+  padding: 100px 0;
+  &.secondary {
+    background-color: $c-secondary;
+    border-bottom: 1px solid white;
+  }
+
+  @media screen and (max-width: 992px) {
+    padding: 50px 0;
+  }
+}
+
+img:not(.not-responsive),
+video,
+iframe {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  &.cover {
+    object-fit: cover;
+  }
+  &.contain {
+    object-fit: contain;
+  }
+}
+
+a:not(.button),
+.link {
+  color: $c-main;
+  text-decoration: unset;
+
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus {
+    transition: color 0.3s;
+    color: darken($color: $c-main, $amount: 25%);
+  }
+}
+
+button:not(.link),
+.button {
+  display: inline-block;
+
+  background-color: $c-main;
+  color: white;
+
+  cursor: pointer;
+
+  text-decoration: unset;
+  padding: 15px 30px;
+
+  border: none;
+
+  font: inherit;
+  line-height: inherit;
+  font-size: inherit;
+
+  &:hover,
+  &:focus {
+    transition: background-color 0.3s;
+  }
+
+  &:hover {
+    background-color: darken($color: $c-main, $amount: 15%);
+  }
+
+  &:focus {
+    background-color: darken($color: $c-main, $amount: 25%);
+  }
+}
+
+.mark {
+  color: $c-main;
+}
+
+.collapse {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+.collapsing {
+  display: none;
+
+  @media screen and (max-width: 992px) {
+    display: block;
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 15px 10px;
+  background-color: #f8f4f4;
+  border: none;
+}
