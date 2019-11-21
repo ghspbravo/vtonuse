@@ -4,6 +4,8 @@ import 'swiper/css/swiper.min.css';
 import "normalize.css";
 import "./common.scss";
 
+import header from "./components/header.hbs"
+
 import banner from "./sections/banner.hbs"
 import about from "./sections/about.hbs"
 import motivation from "./sections/motivation.hbs"
@@ -22,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var div = document.createElement('div');
   div.id = "root";
 
+  div.innerHTML += header();
+
   div.innerHTML += banner({ id: "banner" });
   div.innerHTML += about({ id: "about" });
   div.innerHTML += motivation({ id: "motivation" });
@@ -36,6 +40,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   document.body.appendChild(div);
+
+  document.querySelectorAll(".mobile-navigation__inner a").forEach(item => item.addEventListener("click", function(e) {
+    document.querySelector("#mobile-navigation").classList.remove("show");
+  }))
+
+  document.querySelector(".mobile-navigation__inner").addEventListener("click", function(e) {
+    e.stopPropagation();
+  })
+  document.querySelector(".mobile-navigation").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.querySelector("#mobile-navigation").classList.remove("show");
+  })
+
+  document.querySelectorAll(".nav-open").forEach(function (item) {
+    item.addEventListener("click", function() {
+      document.querySelector("#mobile-navigation").classList.add("show")
+    });
+  })
+
+  document.querySelectorAll(".nav-close").forEach(function (item) {
+    item.addEventListener("click", function() {
+      document.querySelector("#mobile-navigation").classList.remove("show")
+    });
+  })
+
+  let prevScrollpos = window.pageYOffset;
+  window.addEventListener("scroll", function () {
+    const header = document.querySelector("header");
+
+    const currentScrollPos = window.pageYOffset;
+    if (Math.abs(prevScrollpos - currentScrollPos) < 100) return;
+
+    if (prevScrollpos < currentScrollPos) {
+      if (header.classList.contains("show")) header.classList.remove("show");
+    } else {
+      if (!header.classList.contains("show")) header.classList.add("show");
+    }
+    prevScrollpos = currentScrollPos;
+
+  })
 
   const swiper = new Swiper(".events-container", {
     slidesPerView: 'auto',

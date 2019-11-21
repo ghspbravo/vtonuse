@@ -8,7 +8,7 @@ $c-disabled: #c7c5c5;
 @import "./bootstrap/bootstrap-grid.scss";
 @import "./bootstrap/utilities/spacing.scss";
 
-@import url("https://fonts.googleapis.com/css?family=Roboto|Alegreya+SC:500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cormorant+Unicase:700|PT+Sans&display=swap");
 
 html,
 body {
@@ -21,14 +21,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Alegreya SC", serif;
-  font-weight: 500;
+  font-family: "Cormorant Unicase", serif;
+  font-weight: 700;
   letter-spacing: 0.1em;
 }
 
 body,
 button {
-  font-family: "Roboto", sans-serif;
+  font-family: 'PT Sans', sans-serif;
 }
 
 h1 {
@@ -40,7 +40,7 @@ h1 {
 
 .text-big {
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.2;
 }
 
 .pass {
@@ -90,6 +90,11 @@ a:not(.button),
     transition: color 0.3s;
     color: darken($color: $c-main, $amount: 25%);
   }
+}
+
+button.link {
+  border: none;
+  background: none;
 }
 
 button:not(.link),
