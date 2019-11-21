@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "build": "webpack --mode=production"
+    "build": "rm -rf dist && webpack --mode=production"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "@babel/core": "^7.7.2",
     "autoprefixer": "^9.7.2",
     "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
     "handlebars": "^4.5.3",

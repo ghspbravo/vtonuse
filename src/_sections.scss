@@ -2,8 +2,16 @@
   position: relative;
   min-height: 100vh;
   background-color: $c-main;
-  // background-image: url("https://dummyimage.com/1920x1080/e66161/ffffff&text=+");
-  background-size: cover;
+
+  @media screen and (max-width: 1200px) {
+    min-height: unset;
+  } 
+
+  img {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+  }
 
   & > * {
     margin: 0;
