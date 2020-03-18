@@ -19,6 +19,9 @@ import contacts from "./sections/contacts.hbs"
 import footer from "./sections/footer.hbs"
 
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
   var div = document.createElement('div');
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   div.innerHTML += banner({ id: "banner" });
   div.innerHTML += about({ id: "about" });
-  div.innerHTML += motivation({ id: "motivation" });
+  // div.innerHTML += motivation({ id: "motivation" });
   div.innerHTML += traectories({ id: "traectories", traectories: traectoriesContent });
   div.innerHTML += description({ id: "description", descriptions: descriptionsContent });
   div.innerHTML += team({ id: "team", members: teamMembers });
@@ -41,26 +44,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.body.appendChild(div);
 
-  document.querySelectorAll(".mobile-navigation__inner a").forEach(item => item.addEventListener("click", function(e) {
+  document.querySelectorAll(".mobile-navigation__inner a").forEach(item => item.addEventListener("click", function (e) {
     document.querySelector("#mobile-navigation").classList.remove("show");
   }))
 
-  document.querySelector(".mobile-navigation__inner").addEventListener("click", function(e) {
+  document.querySelector(".mobile-navigation__inner").addEventListener("click", function (e) {
     e.stopPropagation();
   })
-  document.querySelector(".mobile-navigation").addEventListener("click", function(e) {
+  document.querySelector(".mobile-navigation").addEventListener("click", function (e) {
     e.preventDefault();
     document.querySelector("#mobile-navigation").classList.remove("show");
   })
 
   document.querySelectorAll(".nav-open").forEach(function (item) {
-    item.addEventListener("click", function() {
+    item.addEventListener("click", function () {
       document.querySelector("#mobile-navigation").classList.add("show")
     });
   })
 
   document.querySelectorAll(".nav-close").forEach(function (item) {
-    item.addEventListener("click", function() {
+    item.addEventListener("click", function () {
       document.querySelector("#mobile-navigation").classList.remove("show")
     });
   })
@@ -113,7 +116,7 @@ const eventsContent = [
 
 const teamMembers = [
   {
-    name: "Анастасия Гурьянова", role: "Идейный вдохновитель и основатель проекта В Тонусе! Наставник направления: “Спорт&питание”",
+    name: "Анастасия Гурьянова", role: "Идейный вдохновитель и основатель проекта В Тонусе! Куратор направления: “Спорт & Питание”",
     photo: "https://dummyimage.com/600x800/e66161/ffffff",
     socials: [
       { name: "FB.", link: "https://www.facebook.com" },
@@ -122,7 +125,7 @@ const teamMembers = [
     ]
   },
   {
-    name: "Анастасия Савастьянова", role: "Наставник направления: “психология & мотивация”",
+    name: "Анастасия Савастьянова", role: "Наставник направления: “Психология & Мотивация”",
     photo: "https://dummyimage.com/600x800/e66161/ffffff",
     socials: [
       { name: "FB.", link: "https://www.facebook.com" },
@@ -131,7 +134,7 @@ const teamMembers = [
     ]
   },
   {
-    name: "Валентина Юдина", role: "Наставник направления “красота & здоровье”",
+    name: "Анастасия Самсонова", role: "Куратор направления “Мастер классы Soft Skills”",
     photo: "https://dummyimage.com/600x800/e66161/ffffff",
     socials: [
       { name: "FB.", link: "https://www.facebook.com" },
@@ -140,7 +143,7 @@ const teamMembers = [
     ]
   },
   {
-    name: "Анастасия Самсонова", role: "Наставник направления “мастер классы от стилистики до этикета”",
+    name: "Валентина Юдина", role: "Куратор направления “Красота & Здоровье”",
     photo: "https://dummyimage.com/600x800/e66161/ffffff",
     socials: [
       { name: "FB.", link: "https://www.facebook.com" },
@@ -149,7 +152,7 @@ const teamMembers = [
     ]
   },
   {
-    name: "Екатерина Химич", role: "Наставник направления",
+    name: "Екатерина Химич", role: "Куратор направления SMM и продвижение",
     photo: "https://dummyimage.com/600x800/e66161/ffffff",
     socials: [
       { name: "FB.", link: "https://www.facebook.com" },
@@ -163,50 +166,40 @@ const descriptionsContent = [
   {
     name: "Тренировки", id: "trainings", image: "https://dummyimage.com/600x800/e66161/ffffff",
     description: [
-      "Курс тренировок из 3 уровней:",
-      "LEVEL 1(начальный уровень = 20 минут)",
-      "LEVEL 2(средний уровень = 25 минут)",
-      "LEVEL 3(продвинутый уровень = 30 минут)",
-      "+ каждодневная зарядка",
-      "+ растяжка",
+      "",
 
     ], isActive: true
   },
   {
     name: "Питание", id: "eat", image: "https://dummyimage.com/600x800/126161/ffffff",
     description: [
-      "3 программы питания:",
-      "На похудение до 5 кг",
-      "На похудение до 10-15 кг",
-      "На похудение до 15-20 кг",
-      "+ 3 вебинара + 3 прямых эфира",
+      "Программа питания на 3 недели",
+      "4 вебинара от специалиста высшей категории: врача-диетолога",
     ], isActive: false
   },
   {
     name: "Здоровье/красота", id: "beauty", image: "https://dummyimage.com/600x800/e61261/ffffff",
     description: [
-      "1-уход за лицом и телом",
-      "2-уход за волосами",
-      "3-мастер класс «Дневной и вечерний макияж для себя»",
-      "4-фейсбилдинг",
-      "+ Вебинар с косметологом"
+      "Мастер-классы «Дневной и вечерний макияж для себя»; «Уход за волосами»; «Прически и локоны»",
+      'Beauty-завтраки: Разбор косметических средств',
+      '2 Вебинара с профессиональным косметологом (Уход за лицом и телом; Фейсбилдинг)',
     ], isActive: false
   },
   {
     name: "Мотивация/психология", id: "motivation", image: "https://dummyimage.com/600x800/e66112/ffffff",
     description: [
       "Мотивационная поддержка и психологический настрой на достижение результата ",
-      "Команда единомышленников",
       "Ежедневные лайфхаки и работа над собой совместно с коучем",
-      "+ 3 вебинара + 3 прямых эфира",
+      "4 вебинара с профессиональным психологом",
     ], isActive: false
   },
   {
     name: "Мастер-классы", id: "masterclass", image: "https://dummyimage.com/600x800/166261/ffffff",
     description: [
-      "По стилю (Прямые эфиры со стилистом)",
-      "Личному бренду,",
-      "Духовному и творческому развитию",
+      "Речь и актерское мастерство",
+      "Выбор своего стиля и разбор гардероба",
+      "Дефиле и фотопозирование",
+      "Этикет и этика      ",
     ], isActive: false
   },
 ]
@@ -214,26 +207,36 @@ const descriptionsContent = [
 const traectoriesContent = [
   {
     name: "Тренировки", id: "trainings",
-    description: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis unde alias velit id aperiam nulla quasi eligendi quod voluptatem placeat impedit ex blanditiis, esse aut beatae sit? Corrupti, sapiente deserunt!"], isActive: true
+    description: ["FUNCTIONAL & POWER TRAINING", "BODY BALANCE", "STRETCH", "PILATES", "РАСПИСАНИЕ", "АДРЕС"], isActive: true
   },
   {
     name: "Лекции и вебинары", id: "lections-webinars",
-    description: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis unde alias velit id aperiam nulla quasi eligendi quod voluptatem placeat impedit ex blanditiis, esse aut beatae sit? Corrupti, sapiente deserunt!"], isActive: false
+    description: ["Образовательная программа, включающая лекции, коворкинги, мастер-классы по основам здорового образа жизни"], isActive: false
   },
   {
-    name: "Проведение зарядок", id: "power-up",
-    description: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis unde alias velit id aperiam nulla quasi eligendi quod voluptatem placeat impedit ex blanditiis, esse aut beatae sit? Corrupti, sapiente deserunt!"], isActive: false
+    name: "Корпоративные Зарядки", id: "power-up",
+    description: ["Организация массовых акций и спортивных мероприятий"], isActive: false
+  },
+  {
+    name: "Онлайн-марафоны", id: "online-maraphons",
+    description: ["Полное преображение"], isActive: false
   },
   {
     name: "Всеросийская деятельность", id: "russia-activity",
-    description: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis unde alias velit id aperiam nulla quasi eligendi quod voluptatem placeat impedit ex blanditiis, esse aut beatae sit? Corrupti, sapiente deserunt!"], isActive: false
+    description: ["Всероссийский онлайн-марафон В Тонусе! 25 городов-участников",
+      "Всероссийский форум:«Мы за здоровый образ жизни!»",
+      "География форума:13 Городов - участников:Екатеринбург; Москва; Ярославль; Кемерово; Архангельск; Ростов- на - Дону; Ижевск; Саратов; Омск; Пермь; Курган; Новосибирск; Барнаул"], isActive: false
   },
   {
     name: "Международная деятельность", id: "world-activity",
-    description: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis unde alias velit id aperiam nulla quasi eligendi quod voluptatem placeat impedit ex blanditiis, esse aut beatae sit? Corrupti, sapiente deserunt!"], isActive: false
+    description: ["Первый Всемирный молодежный фестиваль по Целям устойчивого развития ООН в Королевстве Бахрейн",
+      "Японо-Российский форум в г. Токио и г. Мацумото. Секция по Целям устойчивого развития ООН.",
+      "XIX Всемирный Фестиваль Молодежи и студентов в Сочи",
+      "Чемпионат мира по футболу 2018:  проведение фитнес-активностей и зарядок для 17.000 болельщиков FIFA FAN FEST"
+    ], isActive: false
   },
   {
     name: "Сотрудничество", id: "partnership",
-    description: ["Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis unde alias velit id aperiam nulla quasi eligendi quod voluptatem placeat impedit ex blanditiis, esse aut beatae sit? Corrupti, sapiente deserunt!"], isActive: false
+    description: ["vtonuse.ekb@mail.ru. Тел. 89122742446"], isActive: false
   },
 ]
